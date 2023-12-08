@@ -349,7 +349,7 @@ public class SshdServerMock implements CommandFactory {
         // ssh-agent-plugin/src/test/java/com/cloudbees/jenkins/plugins/sshagent/SSHAgentBase.java
         SimpleGeneratorHostKeyProvider hostKeyProvider =
                 new SimpleGeneratorHostKeyProvider(Paths.get(hostKey.getPath()));
-        hostKeyProvider.setAlgorithm("RSA");
+//        hostKeyProvider.setAlgorithm("RSA");
         sshd.setKeyPairProvider(hostKeyProvider);
         sshd.setUserAuthFactories(List.of(new UserAuthNoneFactory()));
         sshd.setCommandFactory(server);
@@ -438,7 +438,7 @@ public class SshdServerMock implements CommandFactory {
     }
 
     /**
-     * Generates a rsa key-pair in /tmp/jenkins-testkey for use with authenticating the trigger against the mock
+     * Generates a ed25519 key-pair in /tmp/jenkins-testkey for use with authenticating the trigger against the mock
      * server.
      *
      * @return the path to the private key file
@@ -469,7 +469,7 @@ public class SshdServerMock implements CommandFactory {
             }
             System.out.println("Generating test key-pair.");
             JSch jsch = new JSch();
-            KeyPair kpair = KeyPair.genKeyPair(jsch, KeyPair.RSA);
+            KeyPair kpair = KeyPair.genKeyPair(jsch, KeyPair.ED25519);
 
             kpair.writePrivateKey(new FileOutputStream(priv));
             kpair.writePublicKey(new FileOutputStream(pub), "Test");

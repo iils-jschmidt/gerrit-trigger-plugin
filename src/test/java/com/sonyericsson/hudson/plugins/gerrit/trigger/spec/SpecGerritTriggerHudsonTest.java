@@ -207,7 +207,7 @@ public class SpecGerritTriggerHudsonTest {
         gerritServer.triggerEvent(Setup.createPatchsetCreated());
         int expectedBuildStarted = nrOfJobs + 1 - nrOfSilentStartJobs;
         System.out.println("Expected nr of start commands: " + expectedBuildStarted);
-        serverMock.waitForNrCommands("Build Started", expectedBuildStarted, nrOfJobs * 5000);
+        serverMock.waitForNrCommands("Build Started", expectedBuildStarted, nrOfJobs * 7000);
         j.waitUntilNoActivity();
         for (FreeStyleProject fp : j.jenkins.getAllItems(FreeStyleProject.class)) {
             assertEquals(1, fp.getLastBuild().getNumber());

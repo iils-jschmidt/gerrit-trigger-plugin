@@ -75,7 +75,7 @@ public class ConfigTest {
                 + "--message 'You are not built for it <BUILDURL>' --verified <VERIFIED> --code-review <CODE_REVIEW>\","
                 + "\"gerritVerifiedCmdBuildAborted\":\"gerrit review <CHANGE>,<PATCHSET> "
                 + "--message 'Aborted oupsy <BUILDURL>' --verified <VERIFIED> --code-review <CODE_REVIEW>\","
-                + "\"gerritAuthKeyFile\":\"/home/local/gerrit/.ssh/id_rsa\","
+                + "\"gerritAuthKeyFile\":\"/home/local/gerrit/.ssh/id_ed25519\","
                 + "\"gerritAuthKeyFilePassword\":\"passis\","
                 + "\"gerritBuildFailedCodeReviewValue\":\"1\","
                 + "\"gerritBuildFailedVerifiedValue\":\"-1\","
@@ -118,7 +118,7 @@ public class ConfigTest {
         assertEquals("gerrit review <CHANGE>,<PATCHSET> "
                         + "--message 'Aborted oupsy <BUILDURL>' --verified <VERIFIED> --code-review <CODE_REVIEW>",
                 config.getGerritCmdBuildAborted());
-        assertEquals(new File("/home/local/gerrit/.ssh/id_rsa").getPath(),
+        assertEquals(new File("/home/local/gerrit/.ssh/id_ed25519").getPath(),
                      config.getGerritAuthKeyFile().getPath());
         assertEquals("passis", config.getGerritAuthKeyFilePassword());
         assertEquals(Integer.valueOf(1), config.getGerritBuildFailedCodeReviewValue());
@@ -179,7 +179,7 @@ public class ConfigTest {
                 + "--message 'You are not built for it <BUILDURL>' --verified <VERIFIED> --code-review <CODE_REVIEW>\","
                 + "\"gerritVerifiedCmdBuildAborted\":\"gerrit review <CHANGE>,<PATCHSET> "
                 + "--message 'Aborted oupsy <BUILDURL>' --verified <VERIFIED> --code-review <CODE_REVIEW>\","
-                + "\"gerritAuthKeyFile\":\"/home/local/gerrit/.ssh/id_rsa\","
+                + "\"gerritAuthKeyFile\":\"/home/local/gerrit/.ssh/id_ed25519\","
                 + "\"gerritAuthKeyFilePassword\":\"passis\","
                 + "\"gerritBuildFailedCodeReviewValue\":\"1\","
                 + "\"gerritBuildFailedVerifiedValue\":\"-1\","
@@ -223,7 +223,7 @@ public class ConfigTest {
         assertEquals("gerrit review <CHANGE>,<PATCHSET> "
                         + "--message 'Aborted oupsy <BUILDURL>' --verified <VERIFIED> --code-review <CODE_REVIEW>",
                 config.getGerritCmdBuildAborted());
-        assertEquals(new File("/home/local/gerrit/.ssh/id_rsa").getPath(),
+        assertEquals(new File("/home/local/gerrit/.ssh/id_ed25519").getPath(),
                 config.getGerritAuthKeyFile().getPath());
         assertEquals("passis", config.getGerritAuthKeyFilePassword());
         assertEquals(Integer.valueOf(1), config.getGerritBuildFailedCodeReviewValue());
